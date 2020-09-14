@@ -25,6 +25,7 @@ typedef struct ELE {
 /* Queue structure */
 typedef struct {
     list_ele_t *head; /* Linked list of elements */
+    list_ele_t *tail;
     int size;
 } queue_t;
 
@@ -35,7 +36,6 @@ typedef struct {
  * Return NULL if could not allocate space.
  */
 queue_t *q_new();
-
 /*
  * Free ALL storage used by queue.
  * No effect if q is NULL

@@ -11,10 +11,13 @@
  */
 queue_t *q_new()
 {
-    queue_t *q = malloc(sizeof(queue_t));
-    /* TODO: What if malloc returned NULL? */
-    q->head = NULL;
-    return q;
+    queue_t *new_q = malloc(sizeof(queue_t));
+    if (new_q) {
+        new_q->size = 0;
+        new_q->head = NULL;
+        new_q->tail = NULL;
+    }
+    return new_q;
 }
 
 /* Free all storage used by queue */
@@ -24,7 +27,6 @@ void q_free(queue_t *q)
     /* Free queue structure */
     free(q);
 }
-
 /*
  * Attempt to insert element at head of queue.
  * Return true if successful.
